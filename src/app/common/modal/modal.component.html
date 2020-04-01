@@ -5,7 +5,8 @@
   <h4 class="modal-title w-100" id="myModalLabel">Для записи на первой занятие необходимо заполнить форму</h4>
 </div>
 <div class="modal-body">
-  <form  [formGroup]="validationForm">
+  <form  [formGroup]="validationForm"
+  (ngSubmit)="registerRequest()">
     <div class="md-form">
       <input mdbInput mdbValidate type="text"
              class="form-control" id="form1" formControlName="firstName">

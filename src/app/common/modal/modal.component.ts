@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MDBModalRef} from "angular-bootstrap-md";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpService} from '../../services/http.service';
 
 @Component({
   selector: 'app-modal',
@@ -14,10 +15,15 @@ export class ModalComponent implements OnInit {
   constructor(
     public modalRef: MDBModalRef,
     private  formBuilder: FormBuilder,
+    private http: HttpService
   ) { }
 
   ngOnInit(): void {
     this.formValidation();
+  }
+  public registerRequest(): void {
+    console.log('test');
+    // this.http.post().subscribe();
   }
 
   public formValidation() {
@@ -32,8 +38,6 @@ export class ModalComponent implements OnInit {
        lastName: new FormControl('', [
          Validators.required
        ])
-     })
-
+     });
   }
-
 }

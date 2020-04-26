@@ -1,0 +1,16 @@
+.hover-head-block {
+  background-image: url("../../../assets/images/pic03.jpg");
+}
+
+.about-color {
+  color: #ffffff;
+  .about-container {
+    padding: 1rem;
+    display: flex;
+    .about-logo {
+      margin-right: 1rem;
+      padding-top: 3rem;
+    }
+  }
+
+}

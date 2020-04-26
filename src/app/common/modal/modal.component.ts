@@ -15,7 +15,7 @@ export class ModalComponent implements OnInit {
   constructor(
     public modalRef: MDBModalRef,
     private  formBuilder: FormBuilder,
-    private http: HttpService
+    // private http: HttpService
   ) { }
 
   ngOnInit(): void {

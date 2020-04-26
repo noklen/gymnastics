@@ -16,6 +16,8 @@ import { NewsComponent } from './pages/news/news.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ScheduleComponent } from './pages/schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { FooterComponent } from './pages/footer/footer.component';
     ContactComponent,
     GalleryComponent,
     FooterComponent,
+    AboutUsComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,

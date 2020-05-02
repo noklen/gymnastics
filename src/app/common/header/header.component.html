@@ -6,26 +6,14 @@
       </a>
     </mdb-navbar-brand>
     <links>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="news">Новости</a>
-        </li>
-        <li class="nav-item active waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="gallery">Галерея</a>
-        </li>
-        <li class="nav-item active waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="aboutUs">О нас</a>
-        </li>
-        <li class="nav-item active waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="schedule">Рассписание</a>
-        </li>
-        <li class="nav-item active waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="contact">Контакты</a>
+      <ul class="navbar-nav mr-auto ">
+        <li *ngFor="let url of urls" [ngClass]="{'active': url.button}" class="nav-item waves-light" (click)="changePublic()" mdbWavesEffect>
+          <a class="nav-link" [routerLink]="url.url">{{url.name}}</a>
         </li>
       </ul>
       <form class="form-inline waves-light" mdbWavesEffect>
         <div class="md-form my-0">
-          <button class="peach-gradient" mdbBtn type="button" mdbWavesEffect (click)="openModal()">Записаться на занятие</button>
+          <button class="peach-gradient" mdbBtn type="button" mdbWavesEffect routerLink="class">Записаться на занятие</button>
         </div>
       </form>
     </links>

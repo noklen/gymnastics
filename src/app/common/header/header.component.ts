@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MDBModalRef, MDBModalService} from "angular-bootstrap-md";
-import {ModalComponent} from "../modal/modal.component";
 
 @Component({
   selector: 'app-header',
@@ -8,13 +6,50 @@ import {ModalComponent} from "../modal/modal.component";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  private modalRef: MDBModalRef;
-
-  constructor(private modalService: MDBModalService) { }
+  public news: boolean;
+  public gallery: boolean;
+  public about: boolean ;
+  public schedule: boolean;
+  public contact: boolean;
+  public urls = [
+    {
+      button: this.news,
+      url: '/news',
+      name: 'Новости',
+    },
+    {
+      button: this.gallery,
+      url: '/gallery',
+      name: 'Галерея',
+    },
+    {
+      button: this.about,
+      url: '/aboutUs',
+      name: 'О нас',
+    },
+    {
+      button: this.schedule,
+      url: '/schedule',
+      name: 'Рассписание',
+    },
+    {
+      button: this.contact,
+      url: '/contact',
+      name: 'Контакты',
+    }
+  ];
+  constructor() { }
 
   ngOnInit(): void {
+    this.changePublic();
   }
-  public openModal() {
-    this.modalRef = this.modalService.show(ModalComponent)
+
+  public changePublic() {
+    this.urls.map( url => {
+      if (location.pathname === url.url) {
+        return url.button = true;
+      }
+      return url.button = false;
+    })
   }
 }

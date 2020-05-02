@@ -1,3 +1,20 @@
 .hover-head-block {
   background-image: url("../../../assets/images/pic03.jpg");
 }
+.contacts-container {
+  display: flex;
+  margin: 2rem 4rem;
+  .contact-group {
+    width: 50%;
+    .contact-flex {
+      display: flex;
+      .contact-icon {
+        margin-right: 1rem;
+        color: #FF8800;
+      }
+    }
+  }
+  .contact-form {
+    width: 50%;
+  }
+}

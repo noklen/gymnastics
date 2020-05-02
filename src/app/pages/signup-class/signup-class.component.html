@@ -1,0 +1,39 @@
+<section class="hover-head-block">
+  <div class="head-block-text">
+    <h1>
+      Запись на занятие
+    </h1>
+  </div>
+</section>
+<div class="new-container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Запись на занятие</h1>
+      <div>
+        <form  [formGroup]="validationForm"
+               (ngSubmit)="registerRequest()">
+          <div class="md-form">
+            <input mdbInput mdbValidate type="text"
+                   class="form-control" id="form1" formControlName="firstName">
+            <label for="form1">Введите ваше имя</label>
+            <mdb-error *ngIf="controls.email.hasError('required')">Поле Имя обязательное для заполнения</mdb-error>
+          </div>
+          <div class="md-form">
+            <input mdbInput mdbValidate type="text"
+                   class="form-control" id="form2" formControlName="lastName">
+            <label for="form2">Введите вашу фамилию</label>
+            <mdb-error *ngIf="controls.email.hasError('required')">Поле Фамилия обязательное для заполнения</mdb-error>
+          </div>
+          <div class="md-form">
+            <input mdbInput mdbValidate type="email"
+                   class="form-control" id="form9" formControlName="email">
+            <label for="form9">Type your e-mail</label>
+            <mdb-error *ngIf="controls.email.hasError('email')">Введите корректный Email</mdb-error>
+            <mdb-error *ngIf="controls.email.hasError('required')">Поле Email обязательное для заполнения</mdb-error>
+          </div>
+          <button type="submit" mdbBtn class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

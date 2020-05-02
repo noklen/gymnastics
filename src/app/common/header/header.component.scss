@@ -1,5 +1,11 @@
-.view {
-  background: url("https://mdbootstrap.com/img/Photos/Others/img (50).jpg")no-repeat center center;
-  background-size: cover;
-  height: 100vh;
+//.view {
+//  background: url("https://mdbootstrap.com/img/Photos/Others/img (50).jpg")no-repeat center center;
+//  background-size: cover;
+//  height: 100vh;
+//}
+.nav-link {
+  color: #ffbb33!important;
+  &:hover{
+    color: #FF8800!important;
+  }
 }

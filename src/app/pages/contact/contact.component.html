@@ -5,11 +5,76 @@
     </h1>
   </div>
 </section>
-<div class="new-container">
+<section class="new-container">
   <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Тут ваша контактная информация</h1>
-      <p class="lead">дальше какой то тестк можно вставить и тд</p>
+    <div class="">
+      <div class="contacts-container">
+        <div class="contact-group">
+          <div class="contact-flex">
+            <mdb-icon fas icon="map-marker-alt" class="fa-lg contact-icon"></mdb-icon>
+            <div>
+              <h5>ЮРИДИЧЕСКИЙ АДРЕС</h5>
+              <p>230012, Республика Беларусь, г. Гродно, ул. Пушкина, д.31А — 7</p>
+            </div>
+          </div>
+          <div class="contact-flex">
+            <mdb-icon fas icon="map-marker-alt" class="fa-lg contact-icon"></mdb-icon>
+            <div>
+              <h5>АДРЕС</h5>
+              <p>230000, Республика Беларусь, г. Гродно, пр. Я. Купалы, 82</p>
+            </div>
+          </div>
+          <div class="contact-flex">
+            <mdb-icon fas icon="mobile-alt" class="fa-lg contact-icon"></mdb-icon>
+            <div>
+              <h5>ТЕЛЕФОН</h5>
+              <p>+ 375 (29) 783-53-22 МТС</p>
+            </div>
+          </div>
+          <div class="contact-flex">
+            <mdb-icon far icon="envelope contact-icon" class="fa-lg contact-icon"></mdb-icon>
+            <div>
+              <h5>E-MAIL</h5>
+              <p>venera@gfagg.by</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form [formGroup]="validationForm"
+                (ngSubmit)="sendMessage()"
+                action="">
+            <div class="md-form">
+              <input mdbInput mdbValidate type="text"
+                     class="form-control" id="form2" formControlName="name">
+              <label for="form2">Введите вашу фамилию</label>
+              <mdb-error *ngIf="controls.email.hasError('required')">Поле Фамилия обязательное для заполнения</mdb-error>
+            </div>
+            <div class="md-form">
+              <input mdbInput mdbValidate type="email"
+                     class="form-control" id="form9" formControlName="email">
+              <label for="form9">Введите ваш e-mail</label>
+              <mdb-error *ngIf="controls.email.hasError('email')">Введите корректный Email</mdb-error>
+              <mdb-error *ngIf="controls.email.hasError('required')">Поле Email обязательное для заполнения</mdb-error>
+            </div>
+            <div class="md-form md-outline">
+              <textarea type="text"
+                        id="form75"
+                        class="form-control md-textarea"
+                        rows="3"
+                        formControlName="message"
+                        mdbInput></textarea>
+              <label for="form75">Введите ваше сообщение</label>
+              <mdb-error *ngIf="controls.message.hasError('required')">Данное поле обязательное для заполнения</mdb-error>
+            </div>
+            <button type="submit" mdbBtn class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
+          </form>
+        </div>
+      </div>
+      <div class="map">
+        <agm-map [latitude]="map.lat" [longitude]="map.lng" style="height: 400px">
+          <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>
+        </agm-map>
+      </div>
     </div>
   </div>
-</div>
+</section>

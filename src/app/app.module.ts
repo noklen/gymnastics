@@ -4,8 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AgmCoreModule } from '@agm/core'
-
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HeaderComponent } from './common/header/header.component';
@@ -19,6 +17,7 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { SignupClassComponent } from './pages/signup-class/signup-class.component';
+import {AngularYandexMapsModule} from 'angular8-yandex-maps';
 
 @NgModule({
   declarations: [
@@ -41,10 +40,7 @@ import { SignupClassComponent } from './pages/signup-class/signup-class.componen
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    AgmCoreModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBXFqmqsAuHyK-GCF5HDrMqu5WULRpFN-8'
-    })
+    AngularYandexMapsModule.forRoot( '0bddfbe2-7bf5-46ad-9350-627b8e3f104d')
   ],
   entryComponents: [],
   providers: [],

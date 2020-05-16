@@ -31,7 +31,14 @@
             <mdb-error *ngIf="controls.email.hasError('email')">Введите корректный Email</mdb-error>
             <mdb-error *ngIf="controls.email.hasError('required')">Поле Email обязательное для заполнения</mdb-error>
           </div>
-          <button type="submit" mdbBtn class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
+          <div class="md-form">
+            <input mdbInput mdbValidate type="number"
+                   class="form-control" id="form3" formControlName="age">
+            <label for="form3">Введите возраст ребенка</label>
+            <mdb-error *ngIf="controls.age.hasError('required')">Поле Возраст обязательное для заполнения</mdb-error>
+            <mdb-error *ngIf="controls.age.hasError('min')">Минимальные возраст ребенка 7 лет</mdb-error>
+          </div>
+          <button type="submit" mdbBtn [disabled]="validationForm.invalid" class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
         </form>
       </div>
     </div>

@@ -8,7 +8,7 @@
     <links>
       <ul class="navbar-nav mr-auto ">
         <li *ngFor="let url of urls" [ngClass]="{'active': url.button}" class="nav-item waves-light" (click)="changePublic()" mdbWavesEffect>
-          <a class="nav-link" [routerLink]="url.url">{{url.name}}</a>
+          <a class="nav-link header-link" [routerLink]="url.url">{{url.name}}</a>
         </li>
       </ul>
       <form class="form-inline waves-light" mdbWavesEffect>

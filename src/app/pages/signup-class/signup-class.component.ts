@@ -20,12 +20,14 @@ export class SignupClassComponent implements OnInit {
 
   ngOnInit(): void {
     this.formValidation();
+    console.log(this.controls.errors)
   }
   public registerRequest(): any {
     return this.httpService.post(environment.api + Url.Registration, {
       email: this.controls.email.value,
       firstName: this.controls.firstName.value,
       lastName: this.controls.lastName.value,
+      age: this.controls.age.value,
     }).subscribe( (request: any) => {
       console.log(request);
     });
@@ -42,6 +44,10 @@ export class SignupClassComponent implements OnInit {
       ]),
       lastName: new FormControl('', [
         Validators.required
+      ]),
+      age: new FormControl('', [
+        Validators.required,
+        Validators.min(7),
       ])
     });
   }

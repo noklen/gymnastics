@@ -38,6 +38,10 @@
               <p>venera@gfagg.by</p>
             </div>
           </div>
+          <div class="contact-flex social-container">
+            <mdb-icon fab icon="facebook-square" class="fa-2x contact-icon social-icon"></mdb-icon>
+            <mdb-icon fab icon="instagram" class="fa-2x contact-icon social-icon"></mdb-icon>
+          </div>
         </div>
         <div class="contact-form">
           <form [formGroup]="validationForm"
@@ -66,14 +70,14 @@
               <label for="form75">Введите ваше сообщение</label>
               <mdb-error *ngIf="controls.message.hasError('required')">Данное поле обязательное для заполнения</mdb-error>
             </div>
-            <button type="submit" mdbBtn class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
+            <button type="submit" [disabled]="validationForm.invalid" mdbBtn class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
           </form>
         </div>
       </div>
-      <div class="map">
-        <agm-map [latitude]="map.lat" [longitude]="map.lng" style="height: 400px">
-          <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>
-        </agm-map>
+      <div class="map-container">
+        <angular-yandex-map [center]="[55.751952, 37.600739]" [zoom]="12">
+          <angular-yandex-placemark [geometry]="[55.751952, 37.600739]"></angular-yandex-placemark>
+        </angular-yandex-map>
       </div>
     </div>
   </div>

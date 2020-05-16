@@ -11,12 +11,16 @@ import {Url} from "../../models/url.enum";
 })
 export class ContactComponent implements OnInit {
   public validationForm: FormGroup;
-  public get controls() { return this.validationForm.controls; }
+
+  public get controls() {
+    return this.validationForm.controls;
+  }
 
   constructor(
     private  formBuilder: FormBuilder,
     private httpService: HttpService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.formValidation();
@@ -34,7 +38,7 @@ export class ContactComponent implements OnInit {
 
   public formValidation() {
     this.validationForm = this.formBuilder.group({
-      email: new FormControl('',[
+      email: new FormControl('', [
         Validators.email,
         Validators.required,
       ]),
@@ -48,7 +52,7 @@ export class ContactComponent implements OnInit {
   }
 
   public map: any = {
-    lat: 51.678418,
-    lng: 7.809007 };
-
+    lat: 50.071540,
+    lng: 14.405700,
+  };
 }

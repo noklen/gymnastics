@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
   }
 
   public sendMessage(): any {
-    return this.httpService.post(environment.api + Url.Message, {
+    return this.httpService.post(Url.Message, {
       name: this.controls.name.value,
       email: this.controls.email.value,
       message: this.controls.message.value,

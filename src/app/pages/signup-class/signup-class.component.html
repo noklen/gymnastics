@@ -13,7 +13,7 @@
         <form  [formGroup]="validationForm"
                (ngSubmit)="registerRequest()">
           <div class="md-form">
-            <input mdbInput mdbValidate type="text"
+            <input #nameField mdbInput mdbValidate type="text"
                    class="form-control" id="form1" formControlName="firstName">
             <label for="form1">Введите ваше имя</label>
             <mdb-error *ngIf="controls.email.hasError('required')">Поле Имя обязательное для заполнения</mdb-error>

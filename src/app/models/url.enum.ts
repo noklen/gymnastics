@@ -1,4 +1,4 @@
 export enum Url {
-  Message = '/youUrl',
-  Registration = '/yourUrl'
+  Message = '/contact-us',
+  Registration = '/signup-training'
 }

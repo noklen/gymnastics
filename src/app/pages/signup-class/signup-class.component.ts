@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../../environments/environment";
 import {Url} from "../../models/url.enum";
@@ -9,9 +9,10 @@ import {HttpService} from "../../services/http.service";
   templateUrl: './signup-class.component.html',
   styleUrls: ['./signup-class.component.scss']
 })
-export class SignupClassComponent implements OnInit {
+export class SignupClassComponent implements OnInit, AfterViewInit {
   public validationForm: FormGroup;
   public get controls() { return this.validationForm.controls; }
+  @ViewChild('nameField') private nameField: ElementRef;
 
   constructor(
     private  formBuilder: FormBuilder,
@@ -22,8 +23,15 @@ export class SignupClassComponent implements OnInit {
     this.formValidation();
     console.log(this.controls.errors)
   }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.nameField.nativeElement.focus();
+    }, 600);
+  }
+
   public registerRequest(): any {
-    return this.httpService.post(environment.api + Url.Registration, {
+    return this.httpService.post(Url.Registration, {
       email: this.controls.email.value,
       firstName: this.controls.firstName.value,
       lastName: this.controls.lastName.value,

@@ -12,11 +12,11 @@ export class HeaderComponent implements OnInit {
   public schedule: boolean;
   public contact: boolean;
   public urls = [
-    {
-      button: this.news,
-      url: '/news',
-      name: 'Новости',
-    },
+    // {
+    //   button: this.news,
+    //   url: '/news',
+    //   name: 'Новости',
+    // },
     {
       button: this.gallery,
       url: '/gallery',
@@ -27,11 +27,11 @@ export class HeaderComponent implements OnInit {
       url: '/aboutUs',
       name: 'О нас',
     },
-    {
-      button: this.schedule,
-      url: '/schedule',
-      name: 'Рассписание',
-    },
+    // {
+    //   button: this.schedule,
+    //   url: '/schedule',
+    //   name: 'Рассписание',
+    // },
     {
       button: this.contact,
       url: '/contact',

@@ -1,5 +1,9 @@
 .view {
-  background: url("../../../assets/images/background.PNG")no-repeat center center;
+  background: url("../../../assets/images/backround.png")no-repeat center center;
   background-size: cover;
   height: 100vh;
+}
+
+.rgba-black-light {
+  background-color: rgba(0, 0, 0, 0); //Костыль, надо было убрать затемнение с бекграунда
 }

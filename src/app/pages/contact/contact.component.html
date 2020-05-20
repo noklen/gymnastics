@@ -28,12 +28,12 @@
             <mdb-icon far icon="envelope contact-icon" class="fa-lg contact-icon"></mdb-icon>
             <div>
               <h5>E-MAIL</h5>
-              <p>allastica@seznam.cz</p>
+              <p>allastica.agg@gmail.com</p>
             </div>
           </div>
           <div class="contact-flex social-container">
-            <mdb-icon fab icon="facebook-square" class="fa-2x contact-icon social-icon"></mdb-icon>
-            <mdb-icon fab icon="instagram" class="fa-2x contact-icon social-icon"></mdb-icon>
+            <a href="https://facebook.com/Allastica/" target="_blank"><mdb-icon fab icon="facebook-square" class="fa-2x contact-icon social-icon"></mdb-icon></a>
+            <a href="https://www.instagram.com/allastica/" target="_blank"><mdb-icon fab icon="instagram" class="fa-2x contact-icon social-icon"></mdb-icon></a>
           </div>
         </div>
         <div class="contact-form">
@@ -42,7 +42,13 @@
                 action="">
             <div class="md-form">
               <input mdbInput mdbValidate type="text"
-                     class="form-control" id="form2" formControlName="name">
+                     class="form-control" id="form1" formControlName="firstName">
+              <label for="form1">Введите ваше шмя</label>
+              <mdb-error *ngIf="controls.email.hasError('required')">Поле Имя обязательное для заполнения</mdb-error>
+            </div>
+            <div class="md-form">
+              <input mdbInput mdbValidate type="text"
+                     class="form-control" id="form2" formControlName="lastName">
               <label for="form2">Введите вашу фамилию</label>
               <mdb-error *ngIf="controls.email.hasError('required')">Поле Фамилия обязательное для заполнения</mdb-error>
             </div>
@@ -68,8 +74,8 @@
         </div>
       </div>
       <div class="map-container">
-        <angular-yandex-map [center]="[55.751952, 37.600739]" [zoom]="12">
-          <angular-yandex-placemark [geometry]="[55.751952, 37.600739]"></angular-yandex-placemark>
+        <angular-yandex-map [center]="[50.071552, 14.405653]" [zoom]="18">
+          <angular-yandex-placemark [geometry]="[50.071552, 14.405653]"></angular-yandex-placemark>
         </angular-yandex-map>
       </div>
     </div>

@@ -28,7 +28,8 @@ export class ContactComponent implements OnInit {
 
   public sendMessage(): any {
     return this.httpService.post(Url.Message, {
-      name: this.controls.name.value,
+      firstName: this.controls.firstName.value,
+      lastName: this.controls.lastName.value,
       email: this.controls.email.value,
       message: this.controls.message.value,
     }).subscribe((response: any) => {
@@ -42,7 +43,10 @@ export class ContactComponent implements OnInit {
         Validators.email,
         Validators.required,
       ]),
-      name: new FormControl('', [
+      firstName: new FormControl('', [
+        Validators.required
+      ]),
+      lastName: new FormControl('', [
         Validators.required
       ]),
       message: new FormControl('', [

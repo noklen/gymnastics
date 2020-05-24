@@ -1,32 +1,41 @@
 .hover-head-block {
-  background-image: url("../../../assets/images/pic03.jpg");
+  background-image: url("../../../assets/images/background-top.png");
 }
+
 .contacts-container {
   display: flex;
   margin: 2rem 4rem;
+
   .contact-group {
     width: 50%;
+
     .contact-flex {
       display: flex;
+
       .contact-icon {
         margin-right: 1rem;
       }
+
       .social-icon {
         cursor: pointer;
-      &:hover {
-        transform: scale(1.3);
-      }
+
+        &:hover {
+          transform: scale(1.3);
+        }
       }
     }
+
     .social-container {
       display: flex;
       align-items: center;
     }
   }
+
   .contact-form {
     width: 50%;
   }
 }
+
 .map-container {
   width: 100%;
   height: 400px;

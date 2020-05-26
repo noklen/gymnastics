@@ -16,27 +16,26 @@
             <input #nameField mdbInput mdbValidate type="text"
                    class="form-control" id="form1" formControlName="firstName">
             <label for="form1">Введите ваше имя</label>
-            <mdb-error *ngIf="controls.email.hasError('required')">Поле Имя обязательное для заполнения</mdb-error>
+            <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Имя обязательное для заполнения</mdb-error>
           </div>
           <div class="md-form">
             <input mdbInput mdbValidate type="text"
                    class="form-control" id="form2" formControlName="lastName">
             <label for="form2">Введите вашу фамилию</label>
-            <mdb-error *ngIf="controls.email.hasError('required')">Поле Фамилия обязательное для заполнения</mdb-error>
+            <mdb-error *ngIf="submitted &&  controls.email.hasError('required')">Поле Фамилия обязательное для заполнения</mdb-error>
           </div>
           <div class="md-form">
             <input mdbInput mdbValidate type="email"
                    class="form-control" id="form9" formControlName="email">
             <label for="form9">Введите ваш e-mail</label>
             <mdb-error *ngIf="controls.email.hasError('email')">Введите корректный Email</mdb-error>
-            <mdb-error *ngIf="controls.email.hasError('required')">Поле Email обязательное для заполнения</mdb-error>
+            <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Email обязательное для заполнения</mdb-error>
           </div>
           <div class="md-form">
-            <input mdbInput mdbValidate type="number"
+            <input mdbInput mdbValidate type="date"
                    class="form-control" id="form3" formControlName="age">
-            <label for="form3">Введите возраст ребенка</label>
-            <mdb-error *ngIf="controls.age.hasError('required')">Поле Возраст обязательное для заполнения</mdb-error>
-            <mdb-error *ngIf="controls.age.hasError('min')">Минимальные возраст ребенка 7 лет</mdb-error>
+            <label for="form3">Введите день рождения ребенка</label>
+            <mdb-error *ngIf="submitted && controls.age.hasError('required')">Поле Возраст обязательное для заполнения</mdb-error>
           </div>
           <button type="submit" mdbBtn [disabled]="validationForm.invalid" class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
         </form>

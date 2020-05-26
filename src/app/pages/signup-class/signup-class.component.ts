@@ -9,10 +9,10 @@ import {HttpService} from "../../services/http.service";
   templateUrl: './signup-class.component.html',
   styleUrls: ['./signup-class.component.scss']
 })
-export class SignupClassComponent implements OnInit, AfterViewInit {
+export class SignupClassComponent implements OnInit {
   public validationForm: FormGroup;
+  public  submitted = false;
   public get controls() { return this.validationForm.controls; }
-  @ViewChild('nameField') private nameField: ElementRef;
 
   constructor(
     private  formBuilder: FormBuilder,
@@ -24,11 +24,6 @@ export class SignupClassComponent implements OnInit, AfterViewInit {
     console.log(this.controls.errors)
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.nameField.nativeElement.focus();
-    }, 600);
-  }
 
   public registerRequest(): any {
     return this.httpService.post(Url.Registration, {
@@ -55,7 +50,6 @@ export class SignupClassComponent implements OnInit, AfterViewInit {
       ]),
       age: new FormControl('', [
         Validators.required,
-        Validators.min(7),
       ])
     });
   }

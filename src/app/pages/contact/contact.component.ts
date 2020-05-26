@@ -11,6 +11,7 @@ import {Url} from "../../models/url.enum";
 })
 export class ContactComponent implements OnInit {
   public validationForm: FormGroup;
+  public  submitted = false;
 
   public get controls() {
     return this.validationForm.controls;

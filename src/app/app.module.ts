@@ -18,6 +18,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { SignupClassComponent } from './pages/signup-class/signup-class.component';
 import {AngularYandexMapsModule} from 'angular8-yandex-maps';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import {notificationConfig} from "./models/notification.model";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import {AngularYandexMapsModule} from 'angular8-yandex-maps';
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    AngularYandexMapsModule.forRoot( '0bddfbe2-7bf5-46ad-9350-627b8e3f104d')
+    AngularYandexMapsModule.forRoot( '0bddfbe2-7bf5-46ad-9350-627b8e3f104d'),
+    SimpleNotificationsModule.forRoot(notificationConfig)
   ],
   entryComponents: [],
   providers: [],

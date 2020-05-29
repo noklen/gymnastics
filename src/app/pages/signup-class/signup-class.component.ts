@@ -1,8 +1,14 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {environment} from "../../../environments/environment";
 import {Url} from "../../models/url.enum";
 import {HttpService} from "../../services/http.service";
+import {NotificationsService, NotificationType} from "angular2-notifications";
+import {Router} from "@angular/router";
+
+const TITLE_SUCCESS = 'Успешно';
+const CONTENT_SUCCESS = 'Ваша форма была успешно отправлена';
+const TITLE_ERROR = 'Ошибка';
+const CONTENT_ERROR = 'К сожалению ваша форма не была отправлена';
 
 @Component({
   selector: 'app-signup-class',
@@ -15,15 +21,15 @@ export class SignupClassComponent implements OnInit {
   public get controls() { return this.validationForm.controls; }
 
   constructor(
-    private  formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     private httpService: HttpService,
+    private notifications: NotificationsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.formValidation();
-    console.log(this.controls.errors)
   }
-
 
   public registerRequest(): any {
     return this.httpService.post(Url.Registration, {
@@ -31,9 +37,12 @@ export class SignupClassComponent implements OnInit {
       firstName: this.controls.firstName.value,
       lastName: this.controls.lastName.value,
       age: this.controls.age.value,
-    }).subscribe( (request: any) => {
-      console.log(request);
-    });
+    }).subscribe( (response: any) => {
+      this.router.navigate(['']);
+      this.notifications.create(`${response.status} ${TITLE_SUCCESS}`, CONTENT_SUCCESS, NotificationType.Success);
+    }, error => {
+      this.notifications.create(`${error.status} ${TITLE_ERROR}`, CONTENT_ERROR, NotificationType.Error)
+      });
   }
 
   public formValidation() {
@@ -50,7 +59,7 @@ export class SignupClassComponent implements OnInit {
       ]),
       age: new FormControl('', [
         Validators.required,
-      ])
+      ]),
     });
   }
 

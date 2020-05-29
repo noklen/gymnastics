@@ -1,8 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpService} from "../../services/http.service";
-import {environment} from "../../../environments/environment";
 import {Url} from "../../models/url.enum";
+import {NotificationsService, NotificationType} from "angular2-notifications";
+
+const TITLE_SUCCESS = 'Успешно';
+const CONTENT_SUCCESS = 'Ваша форма была успешно отправлена';
+const TITLE_ERROR = 'Ошибка';
+const CONTENT_ERROR = 'К сожалению ваша форма не была отправлена';
 
 @Component({
   selector: 'app-contact',
@@ -19,7 +24,8 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private  formBuilder: FormBuilder,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private notifications: NotificationsService,
   ) {
   }
 
@@ -34,7 +40,9 @@ export class ContactComponent implements OnInit {
       email: this.controls.email.value,
       message: this.controls.message.value,
     }).subscribe((response: any) => {
-      console.log(response);
+      this.notifications.create(`${response.status} ${TITLE_SUCCESS}`, CONTENT_SUCCESS, NotificationType.Success);
+    },error => {
+      this.notifications.create(`${error.status} ${TITLE_ERROR}`, CONTENT_ERROR, NotificationType.Error)
     })
   }
 

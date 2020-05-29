@@ -27,11 +27,11 @@ export class HeaderComponent implements OnInit {
       url: '/aboutUs',
       name: 'О нас',
     },
-    // {
-    //   button: this.schedule,
-    //   url: '/schedule',
-    //   name: 'Рассписание',
-    // },
+    {
+      button: this.schedule,
+      url: '/schedule',
+      name: 'Рассписание',
+    },
     {
       button: this.contact,
       url: '/contact',

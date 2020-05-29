@@ -5,13 +5,40 @@
     </h1>
   </div>
 </section>
-<div class="new-container">
+<div class="new-container schedule">
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <ul>
-        <li>Понедельник: 16:00 - 17:00</li>
-        <li>Четверг: 17:00 - 18:00</li>
-      </ul>
+      <h4>Рассписание занятий</h4>
+      <table class="table table-striped table-responsive-md btn-table">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Возраст</th>
+          <th>Время</th>
+          <th>День</th>
+          <th>Запись</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let table of schedule">
+          <th scope="row">
+            {{ table.id }}
+          </th>
+          <td>
+            {{ table.title }}
+          </td>
+          <td>
+            {{ table.day }}  <mdb-badge color="pink">{{ table.status }}</mdb-badge>
+          </td>
+          <td>
+            {{ table.time }}
+          </td>
+          <td>
+            <button mdbBtn size="sm" mdbWavesEffect type="button" class="m-0 warning-color" routerLink="/class">Записаться</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

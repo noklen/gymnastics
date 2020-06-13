@@ -1,83 +1,118 @@
-<section class="hover-head-block">
-  <div class="head-block-text">
-    <h1>
-      Контакты
-    </h1>
-  </div>
-</section>
-<section class="new-container">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="">
-      <div class="contacts-container">
-        <div class="contact-group">
-          <div class="contact-flex">
-            <mdb-icon fas icon="map-marker-alt" class="fa-lg contact-icon"></mdb-icon>
-            <div>
-              <h5>АДРЕС</h5>
-              <p>Na Bělidle 27, Prague 5-Smíchov Prague, Czech Republic</p>
-            </div>
-          </div>
-          <div class="contact-flex">
-            <mdb-icon fas icon="mobile-alt" class="fa-lg contact-icon"></mdb-icon>
-            <div>
-              <h5>ТЕЛЕФОН</h5>
-              <p>+420 608388457</p>
-            </div>
-          </div>
-          <div class="contact-flex">
-            <mdb-icon far icon="envelope contact-icon" class="fa-lg contact-icon"></mdb-icon>
-            <div>
-              <h5>E-MAIL</h5>
-              <p>allastica.agg@gmail.com</p>
-            </div>
-          </div>
-          <div class="contact-flex social-container">
-            <a href="https://facebook.com/Allastica/" target="_blank"><mdb-icon fab icon="facebook-square" class="fa-2x contact-icon social-icon"></mdb-icon></a>
-            <a href="https://www.instagram.com/allastica/" target="_blank"><mdb-icon fab icon="instagram" class="fa-2x contact-icon social-icon"></mdb-icon></a>
-          </div>
-        </div>
-        <div class="contact-form">
+<div class="page contact-page d-flex grey lighten-5">
+  <div class="container">
+    <section class="text-center dark-grey-text">
+
+      <div class="row d-flex justify-content-center mb-5">
+        <div class="col-md-9 text-center">
+
+          <h3 class="font-weight-bold">Связаться с нами</h3>
+
           <form [formGroup]="validationForm"
                 (ngSubmit)="sendMessage()"
                 action="">
-            <div class="md-form">
-              <input mdbInput mdbValidate type="text"
-                     class="form-control" id="form1" formControlName="firstName">
-              <label for="form1">Введите ваше шмя</label>
-              <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Имя обязательное для заполнения</mdb-error>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="md-form md-outline">
+                  <input mdbInput mdbValidate type="text"
+                         class="form-control" id="form1" formControlName="firstName">
+                  <label for="form1">Введите ваше шмя</label>
+                  <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Имя обязательное для заполнения
+                  </mdb-error>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="md-form md-outline">
+                  <input mdbInput mdbValidate type="text"
+                         class="form-control" id="form2" formControlName="lastName">
+                  <label for="form2">Введите вашу фамилию</label>
+                  <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Фамилия обязательное для заполнения
+                  </mdb-error>
+                </div>
+              </div>
             </div>
-            <div class="md-form">
-              <input mdbInput mdbValidate type="text"
-                     class="form-control" id="form2" formControlName="lastName">
-              <label for="form2">Введите вашу фамилию</label>
-              <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Фамилия обязательное для заполнения</mdb-error>
+
+            <div class="row">
+              <div class="col-lg-12 mb-4">
+                <div class="md-form md-outline">
+                  <input mdbInput mdbValidate type="email"
+                         class="form-control" id="form9" formControlName="email">
+                  <label for="form9">Введите ваш e-mail</label>
+                  <mdb-error *ngIf="submitted && controls.email.hasError('email')">Введите корректный Email</mdb-error>
+                  <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Email обязательное для заполнения
+                  </mdb-error>
+                </div>
+              </div>
             </div>
-            <div class="md-form">
-              <input mdbInput mdbValidate type="email"
-                     class="form-control" id="form9" formControlName="email">
-              <label for="form9">Введите ваш e-mail</label>
-              <mdb-error *ngIf="controls.email.hasError('email')">Введите корректный Email</mdb-error>
-              <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Email обязательное для заполнения</mdb-error>
+
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="md-form md-outline mb-4">
+                  <textarea type="text"
+                            id="form75"
+                            class="form-control md-textarea"
+                            rows="3"
+                            formControlName="message"
+                            mdbInput>
+                  </textarea>
+                  <label for="form75">Введите ваше сообщение</label>
+                  <mdb-error *ngIf="submitted && controls.message.hasError('required')">Данное поле обязательное для заполнения
+                  </mdb-error>
+                </div>
+              </div>
             </div>
-            <div class="md-form md-outline">
-              <textarea type="text"
-                        id="form75"
-                        class="form-control md-textarea"
-                        rows="3"
-                        formControlName="message"
-                        mdbInput></textarea>
-              <label for="form75">Введите ваше сообщение</label>
-              <mdb-error *ngIf="submitted && controls.message.hasError('required')">Данное поле обязательное для заполнения</mdb-error>
-            </div>
-            <button type="submit" [disabled]="validationForm.invalid" mdbBtn class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
+
+            <button type="submit" class="btn btn-amber dark-grey-text ml-0" [disabled]="validationForm.invalid"
+                    mdbBtn>
+              Отправить
+              <i class="far fa-paper-plane ml-2"></i>
+            </button>
           </form>
         </div>
+
       </div>
-      <div class="map-container">
+
+      <div class="row text-center pt-5">
+
+        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+
+          <i class="fas fa-map-marker-alt fa-2x amber-text"></i>
+
+          <p class="font-weight-bold my-3">Адрес</p>
+
+          <p class="text-muted">Na Bělidle 27, Prague 5-Smíchov Prague, Czech Republic</p>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+
+          <i class="fas fa-envelope fa-2x amber-text"></i>
+
+          <p class="font-weight-bold my-3">E-mail</p>
+
+          <p class="text-muted">allastica.agg@gmail.com</p>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+
+          <i class="fas fa-phone fa-2x amber-text"></i>
+
+          <p class="font-weight-bold my-3">Телефон, WhatsApp, Telegram</p>
+
+          <p class="text-muted">+420 608388457</p>
+
+        </div>
+
+
+      </div>
+
+      <div id="map-container-google-1" class="z-depth-1 map-container mt-5">
         <angular-yandex-map [center]="[50.071552, 14.405653]" [zoom]="18">
           <angular-yandex-placemark [geometry]="[50.071552, 14.405653]"></angular-yandex-placemark>
         </angular-yandex-map>
       </div>
-    </div>
+    </section>
   </div>
-</section>
+
+
+</div>

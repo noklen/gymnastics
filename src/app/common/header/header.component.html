@@ -1,22 +1,24 @@
-<header class="h-100">
-  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark pink accent-3 scrolling-navbar intro-fixed-nav" [containerInside]="false">
+<header class="h-100 header">
+  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark pink darken-4 scrolling-navbar intro-fixed-nav"
+              [containerInside]="false">
     <mdb-navbar-brand>
-      <a class="navbar-brand" href="#">
-        <img src="../../../assets/images/logo.png" height="30" class="d-inline-block align-top" alt="">
+      <a class="navbar-brand" routerLink="/">
+        <img src="assets/images/logo.png" height="30" class="d-inline-block align-top" alt="Allastica">
       </a>
     </mdb-navbar-brand>
     <links>
       <ul class="navbar-nav mr-auto ">
-        <li *ngFor="let url of urls" [ngClass]="{'active': url.button}" class="nav-item waves-light" (click)="changePublic()" mdbWavesEffect>
+        <li *ngFor="let url of urls" [ngClass]="{'active': url.button}" class="nav-item" (click)="changePublic()">
           <a class="nav-link header-link" [routerLink]="url.url">{{url.name}}</a>
         </li>
       </ul>
       <form class="form-inline waves-light" mdbWavesEffect>
         <div class="md-form my-0">
-          <button class="relative warning-color waves-light btn" mdbBtn type="button" mdbWavesEffect routerLink="class">Записаться на занятие</button>
+          <button class="relative waves-light btn btn-amber btn-md dark-grey-text" mdbBtn type="button" mdbWavesEffect
+                  routerLink="class">Записаться на занятие
+          </button>
         </div>
       </form>
     </links>
   </mdb-navbar>
 </header>
-

@@ -1,45 +1,58 @@
-<section class="hover-head-block">
-  <div class="head-block-text">
-    <h1>
-      Запись на занятие
-    </h1>
-  </div>
-</section>
-<div class="new-container">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Запись на занятие</h1>
-      <div>
-        <form  [formGroup]="validationForm"
-               (ngSubmit)="registerRequest()">
-          <div class="md-form">
-            <input #nameField mdbInput mdbValidate type="text"
-                   class="form-control" id="form1" formControlName="firstName">
-            <label for="form1">Введите ваше имя</label>
-            <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Имя обязательное для заполнения</mdb-error>
+<div class="page sign-up-page d-flex flex-column grey lighten-5">
+  <div class="container">
+    <section class="text-center dark-grey-text">
+
+      <!-- Section heading -->
+      <h3 class="font-weight-bold my-4">Записаться на занятия</h3>
+      <!-- Section description -->
+      <p class="font-weight-light mx-auto mb-4 pb-2">Введите данные вашего ребёнка.</p>
+
+      <form [formGroup]="validationForm"
+            (ngSubmit)="registerRequest()">
+        <div class="row">
+
+          <div class="col-md-6 mb-4">
+            <div class="md-form md-outline">
+              <input #nameField mdbInput mdbValidate type="text"
+                     class="form-control" id="form1" formControlName="firstName">
+              <label for="form1">Имя</label>
+              <mdb-error *ngIf="submitted && controls.firstName.hasError('required')">Имя обязательное для заполнения</mdb-error>
+            </div>
           </div>
-          <div class="md-form">
-            <input mdbInput mdbValidate type="text"
-                   class="form-control" id="form2" formControlName="lastName">
-            <label for="form2">Введите вашу фамилию</label>
-            <mdb-error *ngIf="submitted &&  controls.email.hasError('required')">Поле Фамилия обязательное для заполнения</mdb-error>
+          <div class="col-md-6 mb-4">
+
+          <div class="md-form md-outline">
+              <input mdbInput mdbValidate type="text"
+                     class="form-control" id="form2" formControlName="lastName">
+              <label for="form2">Фамилия</label>
+              <mdb-error *ngIf="submitted && controls.lastName.hasError('required')">Фамилия обязательное для заполнения
+              </mdb-error>
+            </div>
           </div>
-          <div class="md-form">
-            <input mdbInput mdbValidate type="email"
-                   class="form-control" id="form9" formControlName="email">
-            <label for="form9">Введите ваш e-mail</label>
-            <mdb-error *ngIf="controls.email.hasError('email')">Введите корректный Email</mdb-error>
-            <mdb-error *ngIf="submitted && controls.email.hasError('required')">Поле Email обязательное для заполнения</mdb-error>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="md-form md-outline">
+              <input mdbInput mdbValidate type="number"
+                     class="form-control" id="form9" formControlName="phone">
+              <label for="form9">Ваш номер телефона</label>
+              <mdb-error *ngIf="submitted && controls.phone.hasError('phone')">Введите корректный номер телефона</mdb-error>
+              <mdb-error *ngIf="submitted && controls.phone.hasError('required')">Номер телефона обязателен для заполнения</mdb-error>
+            </div>
           </div>
-          <div class="md-form">
-            <input mdbInput mdbValidate type="date"
-                   class="form-control" id="form3" formControlName="age">
-            <label for="form3">Введите день рождения ребенка</label>
-            <mdb-error *ngIf="submitted && controls.age.hasError('required')">Поле Возраст обязательное для заполнения</mdb-error>
+          <div class="col-md-6 mb-4">
+            <div class="md-form md-outline">
+              <input mdbInput mdbValidate type="text" placeholder="Дата рождения ребёнка" onfocus="(this.type='date')"
+                     onblur="(this.type='text')" class="form-control" id="form3" formControlName="age">
+              <mdb-error *ngIf="submitted && controls.age.hasError('required')">Возраст обязателен для заполнения</mdb-error>
+            </div>
           </div>
-          <button type="submit" mdbBtn [disabled]="validationForm.invalid" class="relative warning-color waves-light" mdbWavesEffect>Отправить форму</button>
-        </form>
-      </div>
-    </div>
+        </div>
+        <button type="submit" mdbBtn [disabled]="validationForm.invalid" class="relative waves-light btn btn-amber dark-grey-text"
+                mdbWavesEffect>Записаться
+        </button>
+      </form>
+
+    </section>
   </div>
 </div>

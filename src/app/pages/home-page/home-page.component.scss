@@ -1,9 +1,75 @@
-.view {
-  background: url("../../../assets/images/backround.png")no-repeat center center;
-  background-size: cover;
-  height: 100vh;
-}
+.page-home {
+  padding: 0;
 
-.rgba-black-light {
-  background-color: rgba(0, 0, 0, 0); //Костыль, надо было убрать затемнение с бекграунда
+  .section-main {
+    min-height: 100vh;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+      padding-top: 180px;
+      padding-bottom: 90px;
+    }
+
+    @media screen and (max-width: 720px) {
+      font-size: 1.7rem;
+      padding-top: 0;
+
+    }
+  }
+
+  .home__title {
+    font-size: 5rem;
+    max-width: 555px;
+    margin: 0 130px 0 0;
+
+    @media screen and (max-width: 1920px) {
+      font-size: 3rem;
+      max-width: 450px;
+      margin: 0 3rem 0 0;
+    }
+
+    @media screen and (max-width: 1440px) {
+      font-size: 2.5rem;
+      max-width: 342px;
+      margin: 0;
+    }
+
+    @media screen and (max-width: 1024px) {
+      max-width: 610px;
+      order: 2;
+    }
+
+    @media screen and (max-width: 720px) {
+      font-size: 1.7rem;
+      max-width: 413px;
+    }
+
+    @media screen and (max-width: 540px) {
+      font-size: 1.7rem;
+    }
+  }
+
+  .home__image {
+    width: 900px;
+    height: auto;
+
+    @media screen and (max-width: 1920px) {
+      width: 650px
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 65%;
+      margin-bottom: 70px;
+      order: 1;
+    }
+  }
+
+  .section-recruting, .section-features {
+    padding: 80px 0;
+  }
 }

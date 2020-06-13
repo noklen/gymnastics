@@ -17,15 +17,19 @@ const CONTENT_ERROR = 'К сожалению ваша форма не была �
 })
 export class SignupClassComponent implements OnInit {
   public validationForm: FormGroup;
-  public  submitted = false;
-  public get controls() { return this.validationForm.controls; }
+  public submitted = false;
+
+  public get controls() {
+    return this.validationForm.controls;
+  }
 
   constructor(
     private formBuilder: FormBuilder,
     private httpService: HttpService,
     private notifications: NotificationsService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.formValidation();
@@ -33,22 +37,23 @@ export class SignupClassComponent implements OnInit {
 
   public registerRequest(): any {
     return this.httpService.post(Url.Registration, {
-      email: this.controls.email.value,
+      phone: this.controls.phone.value,
       firstName: this.controls.firstName.value,
       lastName: this.controls.lastName.value,
       age: this.controls.age.value,
-    }).subscribe( (response: any) => {
+    }).subscribe(() => {
       this.router.navigate(['']);
-      this.notifications.create(`${response.status} ${TITLE_SUCCESS}`, CONTENT_SUCCESS, NotificationType.Success);
-    }, error => {
-      this.notifications.create(`${error.status} ${TITLE_ERROR}`, CONTENT_ERROR, NotificationType.Error)
-      });
+      this.notifications.create(`${TITLE_SUCCESS}`, CONTENT_SUCCESS, NotificationType.Success);
+    }, () => {
+      this.notifications.create(`${TITLE_ERROR}`, CONTENT_ERROR, NotificationType.Error);
+    });
   }
 
   public formValidation() {
     this.validationForm = this.formBuilder.group({
-      email: new FormControl('',[
-        Validators.email,
+      phone: new FormControl('', [
+        Validators.maxLength(13),
+        Validators.minLength(9),
         Validators.required,
       ]),
       firstName: new FormControl('', [

@@ -1,29 +1,6 @@
-.hover-head-block {
-  background-image: url("../../../assets/images/background-top.png");
-}
+.about-page {
 
-.about-row {
-  display: flex;
-  .about-content {
-    width: 70%;
-
-  }
-  .about-intro {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    .about-color {
-      color: #ffffff;
-      .about-container {
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        .about-logo {
-          margin-right: 1rem;
-          padding-top: 3rem;
-        }
-      }
-    }
+  .section-about {
+    padding: 0;
   }
 }
-

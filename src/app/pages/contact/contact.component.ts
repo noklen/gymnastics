@@ -39,11 +39,11 @@ export class ContactComponent implements OnInit {
       lastName: this.controls.lastName.value,
       email: this.controls.email.value,
       message: this.controls.message.value,
-    }).subscribe((response: any) => {
-      this.notifications.create(`${response.status} ${TITLE_SUCCESS}`, CONTENT_SUCCESS, NotificationType.Success);
-    },error => {
-      this.notifications.create(`${error.status} ${TITLE_ERROR}`, CONTENT_ERROR, NotificationType.Error)
-    })
+    }).subscribe(() => {
+      this.notifications.create(`${TITLE_SUCCESS}`, CONTENT_SUCCESS, NotificationType.Success);
+    }, () => {
+      this.notifications.create(`${TITLE_ERROR}`, CONTENT_ERROR, NotificationType.Error);
+    });
   }
 
   public formValidation() {
